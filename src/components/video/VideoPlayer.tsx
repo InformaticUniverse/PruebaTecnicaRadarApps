@@ -90,9 +90,7 @@ export const VideoPlayer = ({video, fullscreen, setFullscreen}: Props) => {
     }
 
     try {
-      const history = await AsyncStorage.getItem('watchHistory');
-      const historyData: VideoHistory[] = history ? JSON.parse(history) : [];
-      const updatedHistory = historyData.map(item =>
+      const updatedHistory = history.map(item =>
         item.id === currentHistory.id ? {...item, watchTime} : item,
       );
 
